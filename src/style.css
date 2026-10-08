@@ -2,7 +2,12 @@
   --nav-rail: 56px;
   --nav-width: min(14rem, calc(100vw - 1rem));
   --nav-offset: var(--nav-rail);
-  --accent: #a47efd;
+  /* Using Catppuccin Mocha Colors*/
+  --accent: #f5e0dc; 
+  --primary: #f2cdcd; 
+  --surface0: #313244;
+  --base: #1e1e2e;
+  --crust: #11111b;
   --font-family: 'Roboto', sans-serif;
 }
 
@@ -24,7 +29,7 @@ body {
   padding: 4px;
   display: flex;
   flex-direction: column;
-  background: #111;
+  background: var(--crust);
   overflow-x: hidden;
   overflow-y: auto;
   transition: width 550ms ease;
@@ -66,7 +71,7 @@ body {
 #nav-links a {
   display: flex;
   padding: 12px;
-  color: #EECFEE;
+  color: var(--primary);
   font-size: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
   font-family: var(--font-family);
   line-height: 1.5;

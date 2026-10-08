@@ -13,6 +13,8 @@
     "vite": "^8.3.0"
   },
   "dependencies": {
-    "animejs": "^4.5.0"
+    "@material/material-color-utilities": "^0.4.0",
+    "animejs": "^4.5.0",
+    "material": "^3.0.4"
   }
 }

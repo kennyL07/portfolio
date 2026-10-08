@@ -1,14 +1,19 @@
 :root {
   --nav-rail: 56px;
-  --nav-width: min(14rem, calc(100vw - 1rem));
+  --nav-width: min(12rem, calc(100vw - 1rem));
   --nav-offset: var(--nav-rail);
-  /* Using Catppuccin Mocha Colors*/
-  --accent: #f5e0dc; 
-  --primary: #f2cdcd; 
-  --surface0: #313244;
-  --base: #1e1e2e;
-  --crust: #11111b;
+
+  --primary: #d0bcff;
+  --on-primary: #381e72;
+  --primary-container: #4f378b;
+  --on-primary-container: #eaddff;
+  --surface: #141218;
+  --on-surface: #e6e0e9;
+  --surface-container: #211f26;
+  --outline: #938f99;
+
   --font-family: 'Roboto', sans-serif;
+  color-scheme: dark;
 }
 
 :root[data-nav-open="true"] {
@@ -16,11 +21,13 @@
 }
 
 body {
+  background: var(--surface);
+  color: var(--on-surface);
   margin: 0;
   font-family: var(--font-family);
 }
 
-.sidenav {
+.nav-rail {
   position: fixed;
   inset: 0 auto 0 0;
   z-index: 100;
@@ -29,13 +36,13 @@ body {
   padding: 4px;
   display: flex;
   flex-direction: column;
-  background: var(--crust);
+  background: var(--surface-container);
   overflow-x: hidden;
   overflow-y: auto;
-  transition: width 550ms ease;
+  transition: width 500ms ease;
 }
 
-:root[data-nav-open="true"] .sidenav {
+:root[data-nav-open="true"] .nav-rail {
   width: var(--nav-width);
 }
 
@@ -49,7 +56,7 @@ body {
   border: 0;
   border-radius: 14px;
   background: transparent;
-  color: var(--accent);
+  color: var(--on-primary-container);
   cursor: pointer;
   touch-action: manipulation;
 }
@@ -77,19 +84,36 @@ body {
   line-height: 1.5;
   text-decoration: none;
   overflow: hidden;
-  text-overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #nav-links a:hover {
-  color: var(--accent);
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+}
+
+.nav-surface {
+  fill: var(--primary-container);
+}
+
+#closebtn:focus-visible,
+#nav-links a:focus-visible {
+  outline: 2px solid var(--outline);
+  outline-offset: 2px;
 }
 
 #main {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  height: 100dvh;
   min-width: 0;
   margin-left: var(--nav-offset);
   padding: clamp(16px, 3vw, 32px);
   overflow-wrap: anywhere;
-  transition: margin-left 550ms ease;
+  transition: margin-left 500ms ease;
+  /* border-left: var(--crust) 1px solid;
+  border-radius: 28px 0px 0px 28px;  */
 }
 
 @media (max-width: 47.99rem) {

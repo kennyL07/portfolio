@@ -1,7 +1,7 @@
 import { animate, svg, spring } from 'animejs'
 
 export function setupNavButton(button: HTMLButtonElement) {
-  const nav = document.getElementById('sidenav')!
+  const nav = document.getElementById('nav-rail')!
   const links = document.getElementById('nav-links')!
   const root = document.documentElement
 

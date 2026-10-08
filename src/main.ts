@@ -1,8 +1,11 @@
 import './style.css'
 import { setupNavButton } from './nav.ts'
+import { applyRandomTheme } from './theme.ts'
+
+applyRandomTheme()
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-<aside id="sidenav" class="sidenav">
+<aside id="nav-rail" class="nav-rail">
   <button
     id="closebtn"
     type="button"

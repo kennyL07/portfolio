@@ -8,8 +8,8 @@ import { setupPerlinNoiseBackground, updateNoise } from './perlinNoise.ts'
 let counter = 1
 
 setupPerlinNoiseBackground(document.querySelector<HTMLDivElement>('body')!)
-// updateNoise()
+
 setInterval(() => {
     updateNoise(counter)
-    counter += 5
+    counter += 1
 }, 100)

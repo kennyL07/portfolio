@@ -1,18 +1,21 @@
 let p: number[] = new Array(512);
 let canvas: HTMLCanvasElement | null = null;
 let ctx: CanvasRenderingContext2D | null = null;
-let asciiColorRamp = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
+let asciiColorRamp = "$@B%8&WM#oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,*\"^`'. ";
 
 export function setupPerlinNoiseBackground(element: HTMLElement): void {
   canvas = document.createElement('canvas');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  element.appendChild(canvas);
-  ctx = canvas.getContext('2d');
+  canvas.id = 'noise-canvas';
   canvas.style.position = 'absolute';
   canvas.style.top = '0';
+  canvas.style.zIndex = '-1';
+  canvas.style.border = '1px solid white'
+  canvas.width = window.innerWidth - 2;
+  canvas.height = window.innerHeight - 2;
+  element.appendChild(canvas);
+  ctx = canvas.getContext('2d');
   ctx.fillStyle = 'white';
-  ctx.font = '10px monospace';
+  ctx.font = '.75rem monospace';
   const seed = Math.floor(Math.random() * 10000);
   const permutation = Array.from({ length: 255 }, (j, k) => k)
   .sort(() => Math.random() - 0.5);
@@ -28,6 +31,16 @@ export function setupPerlinNoiseBackground(element: HTMLElement): void {
   }
 }
 
+export function resizeCanvas(): void {
+  console.log('Resizing canvas');
+  const canvas = document.querySelector('canvas');
+  if (!canvas) return;
+  canvas.width = window.innerWidth - 2;
+  canvas.height = window.innerHeight - 2;
+  ctx.fillStyle = 'white';
+  ctx.font = '.75rem monospace';
+}   
+
 export function updateNoise(counter: number): void {
   if (!canvas || !ctx) return;
 
@@ -38,8 +51,8 @@ export function updateNoise(counter: number): void {
 
   const scale = 0.001; 
   
-  for (let y = 0; y < height; y += 12) {
-    for (let x = 0; x < width; x += 12) {
+  for (let y = 0; y < height; y += parseInt(ctx.font.toString()) * 1.25) {
+    for (let x = 0; x < width; x += parseInt(ctx.font.toString()) * 1.25) {
       const sampleX = (x + counter * 10) * scale;
       const sampleY = (y) * scale;
 

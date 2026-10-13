@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "portfolio_v2",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,10 +11,5 @@
   "devDependencies": {
     "typescript": "~6.0.2",
     "vite": "^8.3.0"
-  },
-  "dependencies": {
-    "@material/material-color-utilities": "^0.4.0",
-    "animejs": "^4.5.0",
-    "material": "^3.0.4"
   }
 }

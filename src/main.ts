@@ -9,6 +9,7 @@ setupHeader(document.querySelector<HTMLDivElement>('header')!)
 
 window.addEventListener('resize', () => {
   resizeCanvas();
+  updateNoise(counter);
 });
 
 

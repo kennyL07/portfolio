@@ -3,8 +3,9 @@ export function setupHeader(header: HTMLElement): void {
     barInner.className = 'wrap bar-inner';
     header.appendChild(barInner);
 
-    const logoPill = document.createElement('div');
+    const logoPill = document.createElement('a');
     logoPill.className = 'pill logo';
+    logoPill.href = "index.html"
     const name = document.createElement('span');
     name.textContent = 'Kennyson Le';
     logoPill.appendChild(name);

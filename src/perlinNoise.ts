@@ -6,18 +6,16 @@ let asciiColorRamp = "$@B%8&WM#oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!
 export function setupPerlinNoiseBackground(element: HTMLElement): void {
   canvas = document.createElement('canvas');
   canvas.id = 'noise-canvas';
-  canvas.style.position = 'absolute';
-  canvas.style.top = '0';
-  canvas.style.zIndex = '-1';
-  canvas.style.border = '1px solid white'
-  canvas.width = window.innerWidth - 2;
-  canvas.height = window.innerHeight - 2;
+  canvas.setAttribute('aria-hidden', 'true');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
   element.appendChild(canvas);
   ctx = canvas.getContext('2d');
-  ctx.fillStyle = 'white';
+  if (!ctx) return;
+  ctx.fillStyle = getComputedStyle(element).getPropertyValue('--accent').trim();
   ctx.font = '.75rem monospace';
   const seed = Math.floor(Math.random() * 10000);
-  const permutation = Array.from({ length: 255 }, (j, k) => k)
+  const permutation = Array.from({ length: 256 }, (_, k) => k)
   .sort(() => Math.random() - 0.5);
 
   for (let i = permutation.length - 1; i > 0; i--) {
@@ -32,12 +30,11 @@ export function setupPerlinNoiseBackground(element: HTMLElement): void {
 }
 
 export function resizeCanvas(): void {
-  console.log('Resizing canvas');
   const canvas = document.querySelector('canvas');
-  if (!canvas) return;
-  canvas.width = window.innerWidth - 2;
-  canvas.height = window.innerHeight - 2;
-  ctx.fillStyle = 'white';
+  if (!canvas || !ctx) return;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--accent').trim();
   ctx.font = '.75rem monospace';
 }   
 
@@ -58,8 +55,8 @@ export function updateNoise(counter: number): void {
 
       const noiseVal = sampleNoise2D(sampleX, sampleY);
 
-      const colorIntensity = clamp(Math.floor((noiseVal + 1) * 127.5), 0, 200);
-      const index = Math.floor(colorIntensity / 200 * (asciiColorRamp.length - 1));
+      const luminosity = clamp(Math.floor((noiseVal + 1.22) * 127.5), 0, 200);
+      const index = Math.floor(luminosity / 200 * (asciiColorRamp.length - 1));
 
 
       ctx.fillText(asciiColorRamp[index], x, y);        

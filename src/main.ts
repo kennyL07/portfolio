@@ -5,7 +5,8 @@ import { setupHeader } from './header.ts'
 let counter = 1
 
 setupPerlinNoiseBackground(document.querySelector<HTMLDivElement>('body')!)
-setupHeader(document.querySelector<HTMLDivElement>('header')!)
+const cleanupHeader = setupHeader(document.querySelector<HTMLElement>('header')!)
+if (import.meta.hot) import.meta.hot.dispose(cleanupHeader)
 
 window.addEventListener('resize', () => {
   resizeCanvas();

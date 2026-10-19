@@ -2,6 +2,8 @@ let p: number[] = new Array(512);
 let canvas: HTMLCanvasElement | null = null;
 let ctx: CanvasRenderingContext2D | null = null;
 let asciiColorRamp = "$@B%8&WM#oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,*\"^`'. ";
+let canvasX;
+let canvasY;
 
 export function setupPerlinNoiseBackground(element: HTMLElement): void {
   canvas = document.createElement('canvas');
@@ -16,7 +18,7 @@ export function setupPerlinNoiseBackground(element: HTMLElement): void {
   ctx.font = '.75rem monospace';
   const seed = Math.floor(Math.random() * 10000);
   const permutation = Array.from({ length: 256 }, (_, k) => k)
-  .sort(() => Math.random() - 0.5);
+    .sort(() => Math.random() - 0.5);
 
   for (let i = permutation.length - 1; i > 0; i--) {
     const j = Math.abs((seed ^ i) % (i + 1));
@@ -36,30 +38,40 @@ export function resizeCanvas(): void {
   canvas.height = window.innerHeight;
   ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--accent').trim();
   ctx.font = '.75rem monospace';
-}   
+}
 
-export function updateNoise(counter: number): void {
+export function updateNoise(counter: number, event): void {
   if (!canvas || !ctx) return;
+  // if (event) {
+  //   let rect = canvas.getBoundingClientRect();
+  //   let x = (event.clientX - rect.left) / (rect.right - rect.left) * canvas.width
+  //   let y = (event.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+
+  //   canvasX = Math.round(x / (parseInt(ctx.font.toString()) * 1.25)) * parseInt(ctx.font.toString()) * 1.25
+  //   canvasY = Math.round(y / (parseInt(ctx.font.toString()) * 1.25)) * parseInt(ctx.font.toString()) * 1.25
+  // }
+  ctx.fillText(asciiColorRamp[0], canvasX, canvasY);
 
   const width = canvas.width;
   const height = canvas.height;
-  
+
   ctx.clearRect(0, 0, width, height);
 
-  const scale = 0.001; 
-  
+  const scale = 0.001;
+
   for (let y = 0; y < height; y += parseInt(ctx.font.toString()) * 1.25) {
     for (let x = 0; x < width; x += parseInt(ctx.font.toString()) * 1.25) {
       const sampleX = (x + counter * 10) * scale;
       const sampleY = (y) * scale;
 
       const noiseVal = sampleNoise2D(sampleX, sampleY);
-
-      const luminosity = clamp(Math.floor((noiseVal + 1.22) * 127.5), 0, 200);
+      // const distFromCursor = clamp(Math.sqrt((canvasX - x)**2+ (canvasY - y) ** 2), 0, 1000)
+      let luminosity = clamp(Math.floor((noiseVal + 1.22) * 127.5), 0, 200);
+      // luminosity = (distFromCursor < 60) ? clamp(luminosity + 200, 0, 200) : luminosity
       const index = Math.floor(luminosity / 200 * (asciiColorRamp.length - 1));
 
 
-      ctx.fillText(asciiColorRamp[index], x, y);        
+      ctx.fillText(asciiColorRamp[index], x, y);
     }
   }
 }

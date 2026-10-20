@@ -37,6 +37,8 @@
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  scrollbar-color: rgba(255, 255, 255, 0.75) transparent;
+  scrollbar-width: thin;
 }
 
 *,
@@ -69,6 +71,12 @@ body {
 :focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 5px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 h1,
@@ -172,37 +180,6 @@ h2 {
   transform: scale(0.97);
 }
 
-.scrollbar-track {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 6px;
-  background: rgba(255, 255, 255, 0.05);
-  z-index: 9999;
-  touch-action: none;
-  user-select: none;
-  cursor: pointer;
-}
-
-.scrollbar-track:focus-visible {
-  outline-offset: -3px;
-}
-
-.scrollbar-pill {
-  width: 100%;
-  height: 32px;
-  background: var(--accent);
-  border-radius: var(--pill);
-  cursor: grab;
-}
-
-.scrollbar-track.is-dragging,
-.scrollbar-track.is-dragging .scrollbar-pill {
-  cursor: grabbing;
-}
-
-
 #main {
   min-width: 0;
 }
@@ -210,9 +187,8 @@ h2 {
   justify-content: center;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.025); 
+  background: rgba(255, 255, 255, 0.025);
 }
-
 
 .hero {
   display: grid;
@@ -248,7 +224,8 @@ h2 {
 .hero-title {
   height: 100vh;
   border-radius: 0;
-  border: 0px 1px 1px 0px solid color-mix(in oklab, var(--line) 100%, transparent);
+  border: 0px 1px 1px 0px solid
+    color-mix(in oklab, var(--line) 100%, transparent);
 }
 
 .section-head {
@@ -271,6 +248,68 @@ h2 {
   font-size: clamp(1.125rem, 1.6vw, 1.3rem);
   line-height: 1.55;
   text-align: left;
+}
+
+.i {
+    width: 2em;
+    height: 2em;
+    flex: none;
+    fill: currentColor;
+    vertical-align: -0.25em;
+}
+
+.btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn-quiet {
+  background: var(--s3);
+  color: var(--text);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 26px;
+  border: 0;
+  border-radius: var(--pill);
+  font-size: var(--fs-md);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  isolation: isolate;
+  transition: border-radius var(--pill) var(--ease);
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity var(--d-quick) var(--ease-std);
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  opacity: 0.08;
+}
+
+img, video, svg {
+    max-width: 100%;
 }
 
 #noise-canvas {

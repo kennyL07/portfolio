@@ -1,6 +1,6 @@
 import './style.css'
 import { resizeCanvas, setupPerlinNoiseBackground, updateNoise } from './perlinNoise.ts'
-import { setupHeader } from './header.ts'
+// import { setupHeader } from './header.ts'
 
 let counter = 1
 
@@ -11,7 +11,7 @@ setupPerlinNoiseBackground(document.querySelector<HTMLDivElement>('body')!)
 
 window.addEventListener('resize', () => {
   resizeCanvas();
-  updateNoise(counter, null);
+  updateNoise(counter);
 });
 
 // window.addEventListener('mousemove', (e) => {
@@ -19,6 +19,6 @@ window.addEventListener('resize', () => {
 // })
 
 setInterval(() => {
-    updateNoise(counter, null)
+    updateNoise(counter)
     counter += 1
 }, 100)

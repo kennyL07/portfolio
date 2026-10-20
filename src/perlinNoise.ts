@@ -2,8 +2,8 @@ let p: number[] = new Array(512);
 let canvas: HTMLCanvasElement | null = null;
 let ctx: CanvasRenderingContext2D | null = null;
 let asciiColorRamp = "$@B%8&WM#oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,*\"^`'. ";
-let canvasX;
-let canvasY;
+let canvasX = 0;
+let canvasY = 0;
 
 export function setupPerlinNoiseBackground(element: HTMLElement): void {
   canvas = document.createElement('canvas');
@@ -40,7 +40,8 @@ export function resizeCanvas(): void {
   ctx.font = '.75rem monospace';
 }
 
-export function updateNoise(counter: number, event): void {
+export function updateNoise(counter: number): void {
+// export function updateNoise(counter: number, event): void {
   if (!canvas || !ctx) return;
   // if (event) {
   //   let rect = canvas.getBoundingClientRect();

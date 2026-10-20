@@ -38,7 +38,6 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   scrollbar-color: rgba(255, 255, 255, 0.75) transparent;
-  scrollbar-width: thin;
 }
 
 *,
@@ -225,7 +224,7 @@ h2 {
   height: 100vh;
   border-radius: 0;
   border: 0px 1px 1px 0px solid
-    color-mix(in oklab, var(--line) 100%, transparent);
+  color-mix(in oklab, var(--line) 100%, transparent);
 }
 
 .section-head {
@@ -251,17 +250,17 @@ h2 {
 }
 
 .i {
-    width: 2em;
-    height: 2em;
-    flex: none;
-    fill: currentColor;
-    vertical-align: -0.25em;
+  width: 2em;
+  height: 2em;
+  flex: none;
+  fill: currentColor;
+  vertical-align: -0.25em;
 }
 
 .btn-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .btn-quiet {
@@ -285,7 +284,6 @@ h2 {
   white-space: nowrap;
   position: relative;
   isolation: isolate;
-  transition: border-radius var(--pill) var(--ease);
 }
 
 .btn:hover {
@@ -300,7 +298,7 @@ h2 {
   border-radius: inherit;
   background: currentColor;
   opacity: 0;
-  transition: opacity var(--d-quick) var(--ease-std);
+  transition: opacity 200ms var(--ease-std);
   pointer-events: none;
 }
 
@@ -308,10 +306,15 @@ h2 {
   opacity: 0.08;
 }
 
-img, video, svg {
-    max-width: 100%;
+img,
+video,
+svg {
+  max-width: 100%;
+  width: 100%;
+  height: auto; /* Keeps the aspect ratio proportional */
+  display: block; /* Prevents unwanted baseline inline spacing */
+  
 }
-
 #noise-canvas {
   position: absolute;
   inset: 0;

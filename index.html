@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +19,7 @@
   <body>
     <header class="bar"></header>
     <main id="main" tabindex="-1">
-      <section class="hero hero-title" aria-labelledby="intro-title">
+      <section class="hero hero-title">
         <div class="hero-center" id="intro">
           <h1 id="intro-title" class="">Hi, I'm Kennyson Le</h1>
           <p class="lede">
@@ -62,9 +62,23 @@
             I am currently working on an othrolinear per-key modular keyboard, my only fully diy fpv drone,
             and a few other projects that I will be posting on my GitHub soon.
           </p>
-          <p>
+          <p id="contact">
             If you would like to reach out to me, please feel free to contact me through my LinkedIn or email me at <a href="mailto:kennysonle5.0@gmail.com">kennysonle5.0@gmail.com</a>.
           </p>
+        </div>
+      </section>
+      <section class="wrap projects" id="projects">
+        <div class="section-head">
+          <h2 id="projects-title">Projects</h2>
+        </div>
+        <div class="project-board">
+          <a class="project-tile" href="/src/projects/projectTemplate.html">
+            <img class="project-tile-icon" src="/src/assets/project-template.png" alt="" />
+            <div class="project-tile-text">
+              <h3 id="template-project-title">Project template</h3>
+              <p>A starting point for my project write-ups.</p>
+            </div>
+          </a>
         </div>
       </section>
     </main>

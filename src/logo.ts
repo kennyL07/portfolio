@@ -33,7 +33,7 @@ function shapePoints(isCircle: boolean): string {
 
 export function setupLogo(mark: HTMLElement): () => void {
   mark.innerHTML = `
-    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 64 64" focusable="false">
       <polygon class="logo-shape" fill="currentColor"></polygon>
       <defs>
         <polygon class="logo-star-target"></polygon>

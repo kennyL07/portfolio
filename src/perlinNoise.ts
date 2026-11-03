@@ -8,7 +8,6 @@ let canvasY = 0;
 export function setupPerlinNoiseBackground(element: HTMLElement): void {
   canvas = document.createElement('canvas');
   canvas.id = 'noise-canvas';
-  canvas.setAttribute('aria-hidden', 'true');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   element.appendChild(canvas);

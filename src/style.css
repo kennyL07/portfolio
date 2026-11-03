@@ -242,7 +242,6 @@ section.wrap {
 .section-head {
   display: grid;
   gap: 14px;
-  max-width: 48rem;
   margin-bottom: clamp(32px, 5vw, 56px);
 }
 
@@ -254,6 +253,59 @@ section.wrap {
 
 .section-head h3 {
   font-size: calc(var(--fs-3xl) / 1.618034);
+}
+
+.projects .section-head,
+.projects h2 {
+  margin: 0;
+}
+
+.project-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 20px;
+}
+
+.project-tile {
+  display: grid;
+  grid-template-columns: clamp(72px, 9vw, 112px) minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+  padding: 16px;
+  border-radius: var(--r-md);
+  background: var(--glass);
+  color: var(--text);
+  text-decoration: none;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.project-tile:hover {
+  background: var(--s1);
+}
+
+.project-tile-icon {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--r-xs);
+}
+
+.project-tile-text {
+  min-width: 0;
+}
+
+.project-tile-text h3 {
+  font-size: var(--fs-md);
+  line-height: 1.35;
+}
+
+.project-tile-text p {
+  margin: 6px 0 0;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
 }
 
 .lede {

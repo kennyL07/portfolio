@@ -2,28 +2,75 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Google+Sans:opsz,wght@17..18,400..700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="./project.css" />
     <meta
       name="description"
       content="Kennyson Le — Computer Science major at Texas A&M College Station, Class of 2030."
     />
-    <title>k3nny.dev</title>
+    <title>Project template | Kennyson Le</title>
   </head>
   <body>
-    <header class="bar"></header>
-    <main id="main" tabindex="-1">
-      <section class="wrap">
-        <div class="section-head">
-          <h2>Site under construction. WIP!</h2>
+    <nav class="project-nav">
+      <div class="project-nav-inner">
+        <a href="/">Home</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#contact">Contact</a>
+      </div>
+    </nav>
+    <main id="main" class="project-page" tabindex="-1">
+      <header class="project-header">
+        <h1>Project template</h1>
+        <p>Placeholder.</p>
+        <p class="project-status">Work in progress</p>
+      </header>
+
+      <figure class="project-gallery">
+        <button class="gallery-main" type="button">
+          <img
+            src="/src/assets/project-template.png"
+            alt="Project template preview"
+          />
+        </button>
+        <div class="gallery-controls">
+          <button class="gallery-previous" type="button" disabled>◀</button>
+          <div class="gallery-thumbnails">
+            <button type="button" class="gallery-thumbnail is-selected">
+              <img
+                src="/src/assets/project-template.png"
+                alt="Project template preview"
+              />
+            </button>
+          </div>
+          <button class="gallery-next" type="button" disabled>▶</button>
         </div>
+        <figcaption class="gallery-caption">
+          Project template preview
+        </figcaption>
+      </figure>
+
+      <section class="project-content">
+        <h2 id="project-overview">About this project</h2>
+        <p>Project details coming soon.</p>
       </section>
     </main>
+
+    <dialog class="gallery-lightbox">
+      <button class="gallery-close" type="button">X</button>
+      <img alt="" />
+    </dialog>
+    <script type="module" src="./gallery.ts"></script>
   </body>
 </html>

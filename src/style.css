@@ -11,7 +11,7 @@
   --accent-c: #303030;
   --on-accent-c: #ffffff;
   --glass: color-mix(in oklab, var(--s1) 50%, transparent);
-  --font: "Google Sans", "Product Sans", system-ui, -apple-system, "Segoe UI",
+  --font: "Arvo", "Google Sans", "Product Sans", system-ui, -apple-system, "Segoe UI",
     sans-serif;
   --bold-hero: clamp(3.25rem, 9vw, 8rem);
   --fs-xs: 0.8125rem;
@@ -44,6 +44,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: "Pridi";
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 1px;
 }
 
 html {
@@ -225,7 +229,7 @@ section.wrap {
   font-size: var(--bold-hero);
   font-weight: 500;
   line-height: 0.98;
-  letter-spacing: -0.045em;
+  letter-spacing: max(1px, -0.045em);
   text-wrap: balance;
 }
 .hero h1 span {
@@ -247,7 +251,7 @@ section.wrap {
 
 .section-head h2 {
   font-size: var(--fs-3xl);
-  letter-spacing: -0.03em;
+  letter-spacing: max(4px, -0.03em);
   line-height: 1.05;
 }
 

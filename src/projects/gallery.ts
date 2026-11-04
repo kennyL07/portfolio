@@ -1,14 +1,16 @@
 function setupProjectGallery(): void {
   const gallery = document.querySelector<HTMLElement>('.project-gallery');
   const main = gallery?.querySelector<HTMLButtonElement>('.gallery-main');
-  const image = main?.querySelector('img');
+  // const image = main?.querySelector('img');
   const caption = gallery?.querySelector<HTMLElement>('.gallery-caption');
   const previous = gallery?.querySelector<HTMLButtonElement>('.gallery-previous');
   const next = gallery?.querySelector<HTMLButtonElement>('.gallery-next');
   const dialog = document.querySelector<HTMLDialogElement>('.gallery-lightbox');
   const enlarged = dialog?.querySelector('img');
   const close = dialog?.querySelector<HTMLButtonElement>('.gallery-close');
-  if (!gallery || !main || !image || !caption || !previous || !next || !dialog || !enlarged || !close) return;
+  if (!gallery || !main || !caption || !previous || !next || !dialog || !enlarged || !close) return;
+
+  let mediaElement;
 
   const thumbnails = Array.from(gallery.querySelectorAll<HTMLButtonElement>('.gallery-thumbnail'));
   let selected = 0;
@@ -16,12 +18,22 @@ function setupProjectGallery(): void {
   const select = (index: number, reveal = false) => {
     const thumbnail = thumbnails[index];
     const preview = thumbnail?.querySelector('img');
-    if (!preview) return;
+    const isVideo = preview.getAttribute('data-url') ? { src: preview.getAttribute('data-url'), title: preview.getAttribute('alt'), style: "width: 100%; height: 100%" } : null;
+    if (!preview && !isVideo) return;
 
+    if (isVideo) {
+      mediaElement = document.createElement('iframe');
+      mediaElement.src = isVideo.src;
+      mediaElement.alt = isVideo.title || '';
+      mediaElement.style = isVideo.style || '';
+    } else {
+      mediaElement = document.createElement('img');
+      mediaElement.src = preview?.currentSrc || preview?.src || '';
+      mediaElement.alt = preview?.alt || '';
+    }
+    main.replaceChildren(mediaElement);
     selected = index;
-    image.src = preview.currentSrc || preview.src;
-    image.alt = preview.alt;
-    caption.textContent = preview.alt;
+    caption.textContent = preview?.alt || isVideo?.title || '';
     thumbnails.forEach((button, i) => button.classList.toggle('is-selected', i === index));
     previous.disabled = index === 0;
     next.disabled = index === thumbnails.length - 1;
@@ -40,8 +52,9 @@ function setupProjectGallery(): void {
   });
 
   main.addEventListener('click', () => {
-    enlarged.src = image.currentSrc || image.src;
-    enlarged.alt = image.alt;
+    if (!mediaElement) return;
+    enlarged.src = mediaElement.currentSrc || mediaElement.src;
+    enlarged.alt = mediaElement.alt;
     dialog.showModal();
   });
   close.addEventListener('click', () => dialog.close());

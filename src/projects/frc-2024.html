@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:opsz,wght@17..18,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="./project.css" />
+    <meta
+      name="description"
+      content="Project description placeholder."
+    />
+    <title>FRC Robotics Competition 2024 | Kennyson Le</title>
+  </head>
+  <body>
+    <nav class="project-nav">
+      <div class="project-nav-inner">
+        <a href="/">Home</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#contact">Contact</a>
+      </div>
+    </nav>
+    <main id="main" class="project-page" tabindex="-1">
+      <header class="project-header">
+        <h1>FRC CRESCENDO 2024</h1>
+        <p>Role and other information</p>
+        <p class="project-status">aug. 2024 - apr. 2025</p>
+      </header>
+
+      <figure class="project-gallery">
+        <div class="gallery-main">
+          <button class="gallery-image" type="button">
+            <img src="/src/assets/projects/frc-2024/Robot.png" alt="FRC CRESCENDO 2024 robot" />
+          </button>
+        </div>
+        <div class="gallery-controls">
+          <button class="gallery-previous" type="button" disabled>◀</button>
+          <div class="gallery-thumbnails">
+            <button type="button" class="gallery-thumbnail is-selected">
+              <img src="/src/assets/projects/frc-2024/Robot.png" alt="Robot" loading="lazy" />
+            </button>
+            <button type="button" class="gallery-thumbnail">
+              <img src="/src/assets/projects/frc-2024/thumbnail.png" alt="CAD of the Robot" loading="lazy" />
+            </button>
+          </div>
+          <button class="gallery-next" type="button">▶</button>
+        </div>
+        <figcaption class="gallery-caption"></figcaption>
+      </figure>
+
+      <section class="project-content">
+        <h2 id="project-overview">About this project</h2>
+        <p>
+          This year, I focused more on VEX than FRC as I was the lead programmer for their team.
+          While I was in VEX, I learned a lot about motor control and localization. 
+          Bringing that knowledge into FRC, I worked on automatic aiming, and PID tuning.
+        </p>
+        <p>
+            This robot had a really ambitious design, but delivery was a difficulty and our subsystems broke down. 
+            Although a lot of programming innovation was made, we had bigger issues to handle.
+        </p>
+      </section>
+    </main>
+
+    <dialog class="gallery-lightbox">
+      <button class="gallery-close" type="button">x</button>
+      <img alt="" />
+    </dialog>
+    <script type="module" src="./gallery.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:opsz,wght@17..18,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="./project.css" />
+    <meta
+      name="description"
+      content="Project description placeholder."
+    />
+    <title>FRC CHARGEDUP 2023 | Kennyson Le</title>
+  </head>
+  <body>
+    <nav class="project-nav">
+      <div class="project-nav-inner">
+        <a href="/">Home</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#contact">Contact</a>
+      </div>
+    </nav>
+    <main id="main" class="project-page" tabindex="-1">
+      <header class="project-header">
+        <h1>FRC Robotics Competition 2023</h1>
+        <p>Programming Sub-team member for Team 2158</p>
+        <p class="project-status">nov. 2022 - apr. 2023</p>
+      </header>
+
+      <figure class="project-gallery">
+        <div class="gallery-main">
+          <button class="gallery-image" type="button">
+            <img src="/src/assets/projects/frc-2023/robot.png" alt="FRC OVERCHARGED 2023 robot" />
+          </button>
+        </div>
+        <div class="gallery-controls">
+          <button class="gallery-previous" type="button" disabled>◀</button>
+          <div class="gallery-thumbnails">
+            <button type="button" class="gallery-thumbnail">
+              <img
+                src="https://img.youtube.com/vi/MNVN5de2AdI/default.jpg"
+                alt="Our last game before getting eliminated in round of 3"
+                data-url="https://www.youtube.com/embed/MNVN5de2AdI?si=0xkqE4qagCFOvMaD"
+              />
+            </button>
+            <button type="button" class="gallery-thumbnail">
+              <img src="/src/assets/projects/frc-2023/highest_scoring.jpg" alt="Our highest scoring match" loading="lazy" />
+            </button>
+            <button type="button" class="gallery-thumbnail">
+              <img src="/src/assets/projects/frc-2023/on_the_run.jpg" alt="Robot on the Run" loading="lazy" />
+            </button>
+            <button type="button" class="gallery-thumbnail">
+              <video src="/src/assets/projects/frc-2023/go_cans.mov" alt="LED Matrix Animating" poster="/src/assets/projects/frc-2023/robot.png" preload="none" muted playsinline></video>
+            </button>
+            <button type="button" class="gallery-thumbnail">
+              <video src="/src/assets/projects/frc-2023/rgb.mov" alt="RGB LED Matrix" poster="/src/assets/projects/frc-2023/robot.png" preload="none" muted playsinline></video>
+            </button>
+            <button type="button" class="gallery-thumbnail is-selected">
+              <img src="/src/assets/projects/frc-2023/robot.png" alt="The Robot" loading="lazy" />
+            </button>
+          </div>
+          <button class="gallery-next" type="button">▶</button>
+        </div>
+        <figcaption class="gallery-caption"></figcaption>
+      </figure>
+
+      <section class="project-content">
+        <h2 id="project-overview">About this project</h2>
+        <p>This was my very exciting first year doing robotics with FRC team 2158. Coming into robotics,
+           I had never coded in a team before. I was pretty scared that my skills would be lack luster 
+           so I put off joining for 2 months until my friends convinced me to join.
+        </p>
+        <p>
+          The game this year was called OVERCHARGED, where the objective was to pick up cones or cubes across the field on the enemy side and place them on your designated holders. 
+          At the end, you would balance on the see-saw like platform with multiple robots getting more points.
+        </p>
+        <p>
+          This year I learned Java, Github project management skills, and how to work in a team.
+          I worked on an LED subsystem for the robot working with 3 different drivers and both LED Matrixs + Strips, 
+          a time-of-flight sensor for the intake subsystem,
+          and auto-balancing using a Proportional-controller and the built in gyroscope on the robot.
+        </p>
+      </section>
+    </main>
+
+    <dialog class="gallery-lightbox">
+      <button class="gallery-close" type="button">x</button>
+      <img alt="" />
+    </dialog>
+    <script type="module" src="./gallery.ts"></script>
+  </body>
+</html>

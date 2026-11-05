@@ -35,7 +35,7 @@
 
 .project-header h1 {
   font-size: var(--fs-3xl);
-  letter-spacing: max(1px, -0.03em);
+  letter-spacing: min(1px, 0.03em);
 }
 
 .project-header p {

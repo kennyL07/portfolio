@@ -47,7 +47,6 @@
         <div class="gallery-controls">
           <button class="gallery-previous" type="button" disabled>◀</button>
           <div class="gallery-thumbnails">
-
             <button type="button" class="gallery-thumbnail" is-selected>
               <img
                 src="/src/assets/project-template.png"
@@ -55,13 +54,20 @@
                 loading="lazy"
               />
             </button>
-
+            <button type="button" class="gallery-thumbnail">
+              <img
+                src="/src/assets/project-template.png"
+                alt="Youtube video placeholder"
+                data-url="insert youtube embed link here"
+              />
+            </button>
+            <button type="button" class="gallery-thumbnail">
+              <video src="insert src video link here" poster="poster image placeholder" preload="none" muted playsinline></video>
+            </button>
           </div>
           <button class="gallery-next" type="button">▶</button>
         </div>
-        <figcaption class="gallery-caption">
-          Caption Placeholder
-        </figcaption>
+        <figcaption class="gallery-caption">Caption Placeholder</figcaption>
       </figure>
 
       <section class="project-content">

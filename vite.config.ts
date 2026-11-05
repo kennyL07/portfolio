@@ -9,6 +9,7 @@ export default defineConfig({
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         projectTemplate: fileURLToPath(new URL('./src/projects/projectTemplate.html', import.meta.url)),
         vex2024: fileURLToPath(new URL('./src/projects/vex-2024.html', import.meta.url)),
+        frc2025: fileURLToPath(new URL('./src/projects/frc-2025.html', import.meta.url)),
       }
     }
   },
